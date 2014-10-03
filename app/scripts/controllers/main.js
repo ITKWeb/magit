@@ -9,5 +9,6 @@
  */
 angular.module('magitApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.gitLgResText = '';
+    $scope.dataTree = 'coucou';
+      console.log('hey');
   });
