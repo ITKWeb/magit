@@ -45,8 +45,36 @@ angular.module('magitApp').factory('DataMockedSrv', function () {
                     children: []
                   }
                 ]
-              }
-            ]
+              },
+             {
+                comment: 'IM THE NEW BRANCH LOLZ',
+                hash: '5922bac',
+                user: 'Rine',
+                tags: [],
+                branchs: ['HEAD', 'origin/master', 'origin/HEAD', 'master'],
+                time: 'il y a 4 minutes',
+                children: [
+                  {
+                    comment: 'jaipadideededommentaire',
+                    hash: '46127ef',
+                    user: 'Rine',
+                    tags: [],
+                    branchs: ['HEAD', 'origin/master', 'origin/HEAD', 'master'],
+                    time: 'il y a 2 minutes',
+                    children: []
+                  },
+                  {
+                    comment: 'nope',
+                    hash: '46127ed',
+                    user: 'Rine',
+                    tags: [],
+                    branchs: ['HEAD', 'origin/master', 'origin/HEAD', 'master'],
+                    time: 'il y a 2 minutes',
+                    children: []
+                  }
+                ]
+              }                
+           ]
           }
         ]
       };

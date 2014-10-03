@@ -13,6 +13,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+      <link rel="stylesheet" href="styles/tree.css">
     <!-- endbuild -->
   </head>
   <body ng-app="magitApp">
@@ -23,14 +24,14 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
+<!--        <ul class="nav nav-pills pull-right">
           <li class="active"><a ng-href="#">Home</a></li>
           <li><a ng-href="#/about">About</a></li>
-        </ul>
+        </ul>-->
         <h3 class="text-muted">MaGit</h3>
       </div>
 
-      <div ng-view=""></div>
+      <div ng-view=""> </div>
 
       <div class="footer">
         <p>Project made with <span class="glyphicon glyphicon-heart"></span> by Marine, Eric et <a href="http://romain.maneschi.fr">Romain</a></p>
@@ -62,6 +63,7 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -69,6 +71,8 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/directives/TreeGit.js"></script>
+      <script src="scripts/services/DataMockedSrv.js"></script>
         <!-- endbuild -->
 </body>
 </html>
