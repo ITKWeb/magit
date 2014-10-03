@@ -1,6 +1,8 @@
 <div>
   <div class="jumbotron">Here the chart</div>
   <div>
+    <p>Command ot enter in your shell :</p>
+    <p>git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)&lt;%an>%Creset' --abbrev-commit --all</p>
     <textarea ng-model="gitLgResText" placeholder="copy/paste the result of command"></textarea>
     <br />
     <a class="btn btn-lg btn-success" ng-click="parse()">Parse!</a>
