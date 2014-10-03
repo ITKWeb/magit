@@ -8,11 +8,13 @@
  * Controller of the magitApp
  */
 angular.module('magitApp')
-  .controller('MainCtrl', [ '$scope', 
-    function ($scope) {
+  .controller('MainCtrl', [ '$scope', 'DataMockedSrv',
+    function ($scope, dataMockedSrv) {
       
         var displayCharts = function displayCharts() {
-            $scope.dataTree = [
+            $scope.dataTree = dataMockedSrv.getSimpleDataMocked();
+                            
+/*                [
                   {
                     'name': 'Top Level',
                     'parent': 'null',
@@ -37,7 +39,7 @@ angular.module('magitApp')
                       }
                     ]
                   }
-                ];
+                ];*/
         };
       
 

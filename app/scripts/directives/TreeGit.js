@@ -9,27 +9,28 @@ angular.module('magitApp').directive('treeGit', [
             restrict: 'E',
             link: function (scope, element) {
 
-  
+                var margin =  20;
                 var height =  900;
                 var width = 800;
 
                 var draw = function draw(dataTree) {
                  
-                    console.log(element[0],'draw',dataTree); 
+                    console.log(dataTree);
                     var i = 0;
-                     var tree = d3.layout.tree().size([height, width]);
+                    var tree = d3.layout.tree().size([height, width]);
                     
                     var diagonal = d3.svg.diagonal()
-                        .projection(function(d) { return [d.y, d.x]; });
+                        .projection(function(d) { return [d.x, d.y]; }); //invert x and y for horizontal
                      
                     var svg = d3.select(element[0])
                         .append('svg')
                         .attr('width', width)
                         .attr('height',  height)
                         .attr('viewBox', '0 0 ' + width + ' ' + height)
-                        .append('g');
+                        .append('g')
+                    .attr('transform', 'translate(' + margin + ',' + margin + ')');
                     
-                    var root = dataTree[0];
+                    var root = dataTree;
                     update(svg,root, tree,diagonal, i);
                      
                 };
@@ -52,7 +53,7 @@ angular.module('magitApp').directive('treeGit', [
                     var nodeEnter = node.enter().append('g')
                         .attr('class', 'node')
                         .attr('transform', function(d) {
-                            return 'translate(' + d.y + ',' + d.x + ')'; });
+                            return 'translate(' + d.x + ',' + d.y + ')'; }); //invert x and y for horizontal
 
                     nodeEnter.append('circle')
                         .attr('r', 10)
@@ -64,7 +65,7 @@ angular.module('magitApp').directive('treeGit', [
                         .attr('dy', '.35em')
                         .attr('text-anchor', function(d) {
                             return d.children || d._children ? 'end' : 'start'; })
-                        .text(function(d) { return d.name; })
+                        .text(function(d) { return d.comment; })
                         .style('fill-opacity', 1);
 
                     // Declare the links…
