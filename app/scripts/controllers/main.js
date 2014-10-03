@@ -11,13 +11,11 @@ angular.module('magitApp')
   .controller('MainCtrl', [ '$scope', 'DataMockedSrv', 'ParseSrv',
     function ($scope, dataMockedSrv, parseSrv) {
       
-        // var displayCharts = function displayCharts() {
-        //     $scope.dataTree = dataMockedSrv.getSimpleDataMocked();
-        // };
+      $scope.dataTree = dataMockedSrv.getSimpleDataMocked();
       
       $scope.parse = function() {
         $scope.dataTree = parseSrv.parse($scope.gitLgResText);
       };
 
-      // displayCharts();
+
   }]);
