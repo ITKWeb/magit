@@ -9,6 +9,12 @@
  */
 angular.module('magitApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.dataTree = 'coucou';
-      console.log('hey');
+      
+        var displayCharts = function displayCharts() {
+            $scope.dataTree = 'coucou';
+            console.log('hey');
+        };
+      
+
+      displayCharts();
   });

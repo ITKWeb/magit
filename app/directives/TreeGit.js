@@ -24,11 +24,7 @@ angular.module('magitApp').directive('TreeGit', [
                     .append('g')
                     .attr('transform', 'translate(' + margin + ', ' + margin+ ')');
                     
-                    
-                    
-                    
-                    
-                    
+                         
                     
                     
             /*        
