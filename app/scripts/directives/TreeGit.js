@@ -15,7 +15,7 @@ angular.module('magitApp').directive('treeGit', [
 
                 var draw = function draw(dataTree) {
                  
-                    console.log(dataTree);
+                    element[0].innerHTML = '';
                     var i = 0;
                     var tree = d3.layout.tree().size([height, width]);
                     
@@ -28,7 +28,7 @@ angular.module('magitApp').directive('treeGit', [
                         .attr('height',  height)
                         .attr('viewBox', '0 0 ' + width + ' ' + height)
                         .append('g')
-                    .attr('transform', 'translate(' + margin + ',' + margin + ')');
+                    .attr('transform', 'translate(0 ,' + margin + ')');
                     
                     var root = dataTree;
                     update(svg,root, tree,diagonal, i);
@@ -43,7 +43,7 @@ angular.module('magitApp').directive('treeGit', [
                     links = tree.links(nodes);
 
                     // Normalize for fixed-depth.
-                    nodes.forEach(function(d) { d.y = d.depth * 180; });
+                    nodes.forEach(function(d) { d.y = d.depth * 30; });
 
                     // Declare the nodes…
                     var node = svg.selectAll('g.node')
@@ -56,7 +56,7 @@ angular.module('magitApp').directive('treeGit', [
                             return 'translate(' + d.x + ',' + d.y + ')'; }); //invert x and y for horizontal
 
                     nodeEnter.append('circle')
-                        .attr('r', 10)
+                        .attr('r', 5)
                         .style('fill', '#fff');
 
                     nodeEnter.append('text')
@@ -65,7 +65,7 @@ angular.module('magitApp').directive('treeGit', [
                         .attr('dy', '.35em')
                         .attr('text-anchor', function(d) {
                             return d.children || d._children ? 'end' : 'start'; })
-                        .text(function(d) { return d.comment; })
+                        .text(function(d) { return d.comment.length > 30 ? d.comment.substr(0, 30)+'...' : d.comment; })
                         .style('fill-opacity', 1);
 
                     // Declare the links…

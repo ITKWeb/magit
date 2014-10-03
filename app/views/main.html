@@ -1,17 +1,14 @@
 <div>
-  <div class="jumbotron" ng-show="dataTree">Here the chart</div>
+  <tree-git ng-if="dataTree"></tree-git>
     
-     <tree-git> </tree-git>
-    
-  <div>
-    <p>Command ot enter in your shell :</p>
-    <p>git log --pretty=format:'%h#%p#%cr|%d|%an|%s' --all</p>
-    <textarea ng-model="gitLgResText" placeholder="copy/paste the result of command"></textarea>
-    <br />
-    <a class="btn btn-lg btn-success" ng-click="parse()">Parse!</a>
+  <div class="commands-btns">
+    <p class="infos-parse">Command ot enter in your shell : <span class="infos-parse-code">git log --pretty=format:'%h#%p#%cr|%d|%an|%s' --all</span></p>
+    <textarea class="textearea-parse" ng-model="gitLgResText" placeholder="copy/paste the result of command"></textarea>
+    <a class="btn btn-lg btn-success btn-parse" ng-click="parse()">Parse!</a>
   </div>
-  <ul>
+
+  <!--<ul>
     <li>here the results</li>
-  <ul>
+  <ul>-->
       
 </div> 

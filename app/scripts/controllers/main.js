@@ -12,7 +12,7 @@ angular.module('magitApp')
     function ($scope, dataMockedSrv, parseSrv) {
       
       $scope.dataTree = dataMockedSrv.getSimpleDataMocked();
-      
+
       $scope.parse = function() {
         $scope.dataTree = parseSrv.parse($scope.gitLgResText);
       };

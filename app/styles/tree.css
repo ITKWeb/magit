@@ -11,3 +11,27 @@
     stroke: #ccc;
     stroke-width: 2px;
 }
+
+.commands-btns {
+	text-align: right;
+	padding-bottom: 30px;
+}
+
+	.infos-parse {
+		text-align: left;
+	}
+
+		.infos-parse-code {
+			background-color: #ccc;
+			padding: 5px;
+			border-radius: 2px;
+		}
+
+	.textearea-parse {
+		width: 100%;
+		height: 180px;
+	}
+
+	.btn-parse {
+
+	}
