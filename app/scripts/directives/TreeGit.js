@@ -79,8 +79,11 @@ angular.module('magitApp').directive('treeGit', [
 
                 };
                 
-               
-                draw(scope.dataTree);
+                scope.$watch('dataTree', function(newValue) {
+                    if(newValue !== undefined) {
+                        draw(scope.dataTree);
+                    }
+                });
                 
             }
         };
