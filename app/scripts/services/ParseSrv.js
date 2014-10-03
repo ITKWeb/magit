@@ -9,9 +9,10 @@
  */
 angular.module('magitApp').factory('ParseSrv', function () {
 
-  var regexpLine = /^.\s([^\s]+)\s-\s(\(([^\)]+)\))?([^\<]+)\s\(([^\)]+)\)<([^>]+)>$/;
+  var regexpLine = /^([^#]+)#([^#]+)?#([^\|]+)\|([^\|]+)?\|([^\|]*)\|(.+)$/;
 
-  var buildCommit = function buildCommit(hash, comment, time, user, optBranchs, optTags, optChildren) {
+  var buildCommit = function buildCommit(hash, comment, time, user, optParents, optBranchs, optTags, optChildren) {
+    var parents = optParents || [];
     var banchs = optBranchs || [];
     var tags = optTags || [];
     var children = optChildren || [];
@@ -29,11 +30,17 @@ angular.module('magitApp').factory('ParseSrv', function () {
   var parseLine = function parseLine(line) {
     var res = line.match(regexpLine);
     if(res !== null) {
-      if(res[2] === undefined) {//no branch
-        return buildCommit(res[1], res[4], res[5], res[6]);
+      var hash = res[1];
+      var parentHashs = res[2];
+      var time = res[3];
+      var branchs = res[4];
+      var user = res[5];
+      var comment = res[6];
+      if(branchs === undefined) {//no branch
+        return buildCommit(hash, comment, time, user);
       } else {
-        var branchs = res[3].split(',');
-        return buildCommit(res[1], res[4], res[5], res[6], branchs);
+        branchs = branchs.replace(/(\s|\(|\))/g, '').split(',');
+        return buildCommit(res[1], res[4], res[5], res[6], parentHashs, branchs);
       }
     }
   };
