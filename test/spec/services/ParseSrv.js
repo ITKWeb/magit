@@ -33,4 +33,8 @@ describe('Services: ParseSrv', function () {
     expect(res.children[0].children[0].children[0].branchs[0]).toBe(DataMockedSrv.getSimpleDataMocked().children[0].children[0].children[0].branchs[0]);
   }));
 
+  it('should parse multiple branchs', inject( function (ParseSrv, DataMockedSrv) {
+
+  });
+
 });
