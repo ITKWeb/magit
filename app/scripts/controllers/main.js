@@ -10,7 +10,7 @@
 angular.module('magitApp')
   .controller('MainCtrl', [ '$scope', 'DataMockedSrv', 'ParseSrv',
     function ($scope, dataMockedSrv, parseSrv) {
-      
+     
       $scope.dataTree = dataMockedSrv.getSimpleDataMocked();
 
       $scope.parse = function() {
