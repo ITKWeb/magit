@@ -34,15 +34,10 @@ angular.module('magitApp').factory('ParseSrv', function () {
       var hash = res[1];
       var parentHashs = res[2] !== undefined ? res[2].split(' ') : [];
       var time = res[3];
-      var branchs = res[4];
+      var branchs = res[4] !== undefined ? res[4].replace(/(\s|\(|\))/g, '').split(',') : [];
       var user = res[5];
       var comment = res[6];
-      if(branchs === undefined) {//no branch
-        return buildCommit(hash, comment, time, user, parentHashs);
-      } else {
-        branchs = branchs.replace(/(\s|\(|\))/g, '').split(',');
-        return buildCommit(res[1], res[4], res[5], res[6], parentHashs, branchs);
-      }
+      return buildCommit(hash, comment, time, user, parentHashs, branchs);
     }
   };
 
